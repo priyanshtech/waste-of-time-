@@ -59,7 +59,10 @@ export default function App() {
           <Buttons
           key={i}
           option={opt}
-          sO={(value) => setSelected(value)}
+          sO={(value) => {setSelected(value);
+            setSubmit("");     
+      setIsCorrect(null);}
+          }
           sL={selected}
         />
             ))}
@@ -70,8 +73,8 @@ export default function App() {
           className="mt-6 border-2 border-black px-4 py-2 rounded-lg bg-white hover:bg-gray-200 mx-3"
         >
           Submit
-        </button><p className={` w-fit px-2 py-1 mx-3 rounded-lg ${isCorrect===true?"bg-green-700":""}
-        ${isCorrect===false?"bg-red-600":""}`}>{submit}</p>
+        </button><p key={submit}className={` w-fit px-2 py-1 mx-3 rounded-lg ${isCorrect===true?"bg-green-700":""}
+        ${isCorrect===false?"bg-red-600":""} animate-pulse`}>{submit}</p>
         { submit && (
           <p className="mt-4 font-bold">{submit}</p>
         )}
